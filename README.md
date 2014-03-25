@@ -1,6 +1,11 @@
 ## angular-duoshuo
 The duoshuo directive for angular
 
+### Status
+now only support offical `data-thread-key` option, in this directive, use `duoshuo`.
+
+If you want to use other option, feel free to fork and pull request or let me know.
+
 ### Usage
 
 1. config the `shortName` for duoshuo.
