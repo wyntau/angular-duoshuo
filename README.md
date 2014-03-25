@@ -7,6 +7,7 @@ The duoshuo directive for angular
 2. add directive `<div duoshuo="{{threadKey}}"></div>`, and replace `threadKey` with your own threadKey.
 
 ##### javascript
+demo.js
 ```js
 var myApp = angular.module('myApp', ['ngDuoshuo']);
 
@@ -18,6 +19,7 @@ myApp.config(['$duoshuoProvider', function($duoshuoProvider){
 ```
 
 ##### html
+index.html
 ```html
 <!doctype html>
 <html lang="en">
