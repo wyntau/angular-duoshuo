@@ -2,14 +2,12 @@
 The duoshuo directive for angular
 
 ### Status
-now only support offical `data-thread-key` option, in this directive, use `duoshuo`.
-
-If you want to use other option, feel free to fork and pull request or let me know.
+angular-duoshuo support all duoshuo `data-*` option
 
 ### Usage
 
 1. config the `shortName` for duoshuo.
-2. add directive `<div duoshuo="{{duoshuo_thread_key}}"></div>`, and replace `duoshuo_thread_key` with your own duoshuo_thread_key.
+2. add directive `<duoshuo data-thread-key="thread_key"></duoshuo>`, and replace `thread_key` with your own thread_key.
 
 ##### demo.js
 ```js
@@ -33,7 +31,7 @@ myApp.config(['$duoshuoProvider', function($duoshuoProvider){
 <body ng-app="myApp">
     <div ng-controller="democontrol">
         {{test}} should equal to <em>new</em>
-        <div duoshuo="duoshuo_thread_key"></div>
+        <duoshuo data-thread-key="thread_key"></duoshuo>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src="angular-duoshuo.js"></script>

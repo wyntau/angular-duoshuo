@@ -20,13 +20,14 @@
             document.body.appendChild(script);
         };
 
-        var prepareComment = function(threadKey, url){
-            var el = document.createElement('div'),
-                ds = document.getElementById('ds-thread');
-            el.setAttribute('data-thread-key', threadKey);
-            el.setAttribute('data-url', url);
-            DUOSHUO.EmbedThread(el.outerHTML);
-            ds.appendChild(el);
+        var prepareComment = function(scope, url){
+            var el = document.getElementById('ds-thread');
+            var $el = angular.element(el);
+
+            if(!scope.url){
+                el.setAttribute('data-url', url);
+            }
+            DUOSHUO.EmbedThread(el);
         };
 
         this.setShortName = function(name){
@@ -36,16 +37,16 @@
         };
 
         this.$get = ['$location', function($location){
-            var loadComment = function(threadKey) {
+            var loadComment = function(scope) {
                 if (!angular.isDefined(window.duoshuoQuery) || !angular.isDefined(window.duoshuoQuery.short_name)) {
                   throw new Error('No duoshuo shortname defined');
-                } else if (!angular.isDefined(threadKey)) {
+                } else if (!angular.isDefined(scope.threadKey)) {
                   throw new Error('No duoshuo thread key defined');
                 } else if (angular.isDefined(window.DUOSHUO)) {
-                  prepareComment(threadKey, $location.absUrl());
+                  prepareComment(scope, $location.absUrl());
                 } else {
                   loadScript('http://static.duoshuo.com/embed.js', function(){
-                    prepareComment(threadKey, $location.absUrl());
+                    prepareComment(scope, $location.absUrl());
                   });
                 }
             };
@@ -58,16 +59,23 @@
 
     ngDuoshuo.directive('duoshuo', ['$duoshuo', function($duoshuo){
         return {
-            restrict: 'AC',
+            restrict: 'EA',
             replace: true,
             scope: {
-                threadKey: '=duoshuo'
+                threadKey: '@',
+                title: '@',
+                image: '@',
+                url: '@',
+                authorKey: '@',
+                formPosition: '@',
+                limit: '@',
+                order: '@'
             },
             template: '<div id="ds-thread" class="ds-thread"></div>',
             link: function(scope){
                 scope.$watch('threadKey', function(threadKey) {
                     if (angular.isDefined(threadKey)) {
-                        $duoshuo.loadComment(threadKey);
+                        $duoshuo.loadComment(scope);
                     }
                 });
             }
