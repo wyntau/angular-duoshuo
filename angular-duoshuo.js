@@ -22,12 +22,11 @@
 
         var prepareComment = function(scope, url){
             var el = document.getElementById('ds-thread');
-            var $el = angular.element(el);
 
             if(!scope.url){
                 el.setAttribute('data-url', url);
             }
-            DUOSHUO.EmbedThread(el);
+            DUOSHUO.EmbedThread(el.outerHTML);
         };
 
         this.setShortName = function(name){
