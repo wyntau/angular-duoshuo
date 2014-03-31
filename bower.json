@@ -1,0 +1,23 @@
+{
+  "name": "angular-duoshuo",
+  "main": "angular-duoshuo.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Jeremial/angular-duoshuo",
+  "authors": [
+    "Jeremial <jeremial90@gmail.com>"
+  ],
+  "description": "duoshuo directive for angular.js",
+  "keywords": [
+    "angular",
+    "duoshuo",
+    "directive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
