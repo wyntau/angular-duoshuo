@@ -1,7 +1,7 @@
 {
   "name": "angular-duoshuo",
   "main": "angular-duoshuo.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/Jeremial/angular-duoshuo",
   "authors": [
     "Jeremial <jeremial90@gmail.com>"
@@ -19,5 +19,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "~1.2.15"
+  }
 }
