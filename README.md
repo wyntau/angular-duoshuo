@@ -1,6 +1,10 @@
 ## angular-duoshuo
 The duoshuo directive for angular
 
+### Install
+
+    bower install angular-duoshuo
+
 ### Status
 angular-duoshuo support all duoshuo `data-*` option
 
