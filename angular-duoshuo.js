@@ -20,13 +20,11 @@
             document.body.appendChild(script);
         };
 
-        var prepareComment = function(scope, url){
-            var el = document.getElementById('ds-thread');
-
+        var prepareComment = function(scope, url, el){
             if(!scope.url){
                 el.setAttribute('data-url', url);
             }
-            DUOSHUO.EmbedThread(el.outerHTML);
+            DUOSHUO.EmbedThread(el);
         };
 
         this.setShortName = function(name){
@@ -36,16 +34,16 @@
         };
 
         this.$get = ['$location', function($location){
-            var loadComment = function(scope) {
+            var loadComment = function(scope, el) {
                 if (!angular.isDefined(window.duoshuoQuery) || !angular.isDefined(window.duoshuoQuery.short_name)) {
                   throw new Error('No duoshuo shortname defined');
                 } else if (!angular.isDefined(scope.threadKey)) {
                   throw new Error('No duoshuo thread key defined');
                 } else if (angular.isDefined(window.DUOSHUO)) {
-                  prepareComment(scope, $location.absUrl());
+                  prepareComment(scope, $location.absUrl(), el);
                 } else {
                   loadScript('http://static.duoshuo.com/embed.js', function(){
-                    prepareComment(scope, $location.absUrl());
+                    prepareComment(scope, $location.absUrl(), el);
                   });
                 }
             };
@@ -70,11 +68,11 @@
                 limit: '@',
                 order: '@'
             },
-            template: '<div id="ds-thread" class="ds-thread"></div>',
-            link: function(scope){
+            template: '<div class="ds-thread"></div>',
+            link: function(scope, element, attrs){
                 scope.$watch('threadKey', function(threadKey) {
                     if (angular.isDefined(threadKey)) {
-                        $duoshuo.loadComment(scope);
+                        $duoshuo.loadComment(scope, element[0]);
                     }
                 });
             }
