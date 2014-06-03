@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngDuoshuo']);
+var myApp = angular.module('myApp', ['meDuoshuo']);
 
 myApp.config(['$duoshuoProvider', function($duoshuoProvider){
     $duoshuoProvider.setShortName('isayme');

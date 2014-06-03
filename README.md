@@ -15,7 +15,7 @@ angular-duoshuo support all duoshuo `data-*` option
 
 ##### demo.js
 ```js
-var myApp = angular.module('myApp', ['ngDuoshuo']);
+var myApp = angular.module('myApp', ['meDuoshuo']);
 
 myApp.config(['$duoshuoProvider', function($duoshuoProvider){
     $duoshuoProvider.setShortName('short_name');

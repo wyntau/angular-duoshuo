@@ -1,7 +1,7 @@
 (function(angular, window){
-    var ngDuoshuo = angular.module('ngDuoshuo', []);
+    var meDuoshuo = angular.module('meDuoshuo', []);
 
-    ngDuoshuo.provider('$duoshuo', function(){
+    meDuoshuo.provider('$duoshuo', function(){
 
         var loadScript = function(src, cbk) {
             var script = document.createElement('script');
@@ -54,7 +54,7 @@
         }];
     });
 
-    ngDuoshuo.directive('duoshuo', ['$duoshuo', function($duoshuo){
+    meDuoshuo.directive('duoshuo', ['$duoshuo', function($duoshuo){
         return {
             restrict: 'EA',
             replace: true,
