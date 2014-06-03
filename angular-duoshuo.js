@@ -59,14 +59,14 @@
             restrict: 'EA',
             replace: true,
             scope: {
-                threadKey: '@',
-                title: '@',
-                image: '@',
-                url: '@',
-                authorKey: '@',
-                formPosition: '@',
-                limit: '@',
-                order: '@'
+                threadKey: '=',
+                title: '=',
+                image: '=',
+                url: '=',
+                authorKey: '=',
+                formPosition: '=',
+                limit: '=',
+                order: '='
             },
             template: '<div class="ds-thread"></div>',
             link: function(scope, element, attrs){
